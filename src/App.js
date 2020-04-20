@@ -16,16 +16,19 @@ import { fetchData} from './api';
      }
 
      handleCountryChange = async (country) =>{
-        console.log(country
-            )
+        const fetchedData = await fetchData(country);
+        this.setState({data: fetchedData, country: country})
+         console.log("handlechange fetchedData", fetchedData)
      }
 
     render() {
-        const {data} = this.state
+
+        const {data, country} = this.state
+
         return (
             <div className={styles.container}>
                 <Cards data={data}/>
-                <Chart />
+                <Chart data={data} country={country} />
                 <CountryPicker 
                     handleCountryChange={this.handleCountryChange}
                 />
