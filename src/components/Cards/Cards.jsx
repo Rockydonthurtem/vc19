@@ -9,6 +9,7 @@ import styles from './Cards.module.css'
      if(!confirmed){
          return "Loading...";
      }
+     
     return (
         <div className={styles.container} >
             <Grid container spacing={3} justify="center">
